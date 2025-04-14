@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Schedule</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a6eaf3;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background-color: #0a2a4f;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      color: white;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h2 {
+      background-color: #0a2a4f;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+    }
+    .section {
+      padding: 20px;
+    }
+    .schedule-header {
+      text-align: center;
+      width: 100%;
+      color: #0a2a4f;
+      background-color: transparent;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .schedule-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .schedule-buttons button {
+      background-color: #0a2a4f;
+      color: white;
+      font-size: 1.2em;
+      margin: 0 15px;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .schedule-buttons button:hover {
+      background-color: #08325e;
+    }
+    .schedule-container {
+      display: flex;
+      align-items: flex-start;
+    }
+    .schedule-info {
+      width: 30%;
+      padding: 20px;
+      box-sizing: border-box;
+      color: white;
+    }
+    .schedule-info div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .schedule-info span {
+      margin-left: 10px;
+    }
+    .schedule-content {
+      background-color: #0a2a4f;
+      color: white;
+      width: 60%;
+      margin-left: 10%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .schedule-content div {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+    .speaker {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .speaker img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+    .speaker-content {
+      flex-grow: 1;
+    }
+    .news-section {
+      height: 200px;
+      background-color: #e0f7fa;
+      margin-top: 30px;
+      padding: 20px;
+    }
+  </style>
+  <script>
+    const schedules = {
+      Day1: ["9:00 - Opening Keynote", "10:00 - Innovation Panel", "11:15 - Break", "12:30 - Workshop A", "13:30 - Lunch", "15:30 - AI in Practice", "16:30 - Wrap-up"],
+      Day2: ["9:00 - Breakfast Networking", "10:00 - Panel Discussion", "11:15 - Break", "12:30 - Workshop B", "13:30 - Lunch", "15:30 - Tech Trends", "16:30 - Social Hour"],
+      Day3: ["9:00 - Intro to AI Ethics", "10:00 - Case Studies", "11:15 - Break", "12:30 - Workshop C", "13:30 - Lunch", "15:30 - Closing Remarks", "16:30 - Farewell"]
+    };
+
+    function showSchedule(day) {
+      const container = document.getElementById('schedule-content');
+      container.innerHTML = '';
+      schedules[day].forEach(item => {
+        const div = document.createElement('div');
+        div.textContent = item;
+        container.appendChild(div);
+      });
+    }
+
+    window.onload = () => showSchedule('Day1');
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="#event-details">Event Details</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#news">News, Articles, Patch Notes</a>
+  </nav>
+
+  <h2 id="event-details">Event Details</h2>
+  <div class="section">
+    <div class="schedule-buttons">
+      <button onclick="showSchedule('Day1')">Day 1</button>
+      <button onclick="showSchedule('Day2')">Day 2</button>
+      <button onclick="showSchedule('Day3')">Day 3</button>
+    </div>
+    <div class="schedule-header">
+      The AI Agenda: Navigating Innovation
+    </div>
+    <div class="schedule-container" id="schedule">
+      <div class="schedule-info">
+        <div><img src="https://img.icons8.com/ios-filled/20/ffffff/marker.png" alt="Location"><span>Location: TBD</span></div>
+        <div><img src="https://img.icons8.com/ios-filled/20/ffffff/new-post.png" alt="Email"><span>Email: info@example.com</span></div>
+      </div>
+      <div class="schedule-content" id="schedule-content"></div>
+    </div>
+  </div>
+
+  <h2 id="speakers">Speaker Profiles</h2>
+  <div class="section">
+    <div class="speaker">
+      <img src="https://via.placeholder.com/60" alt="Speaker" />
+      <div class="speaker-content">
+        <strong>Name Surname</strong>
+        <p>Key Points: ...</p>
+        <p>Lecture: ...</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <img src="https://via.placeholder.com/60" alt="Speaker" />
+      <div class="speaker-content">
+        <strong>Name Surname</strong>
+        <p>Key Points: ...</p>
+        <p>Lecture: ...</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <img src="https://via.placeholder.com/60" alt="Speaker" />
+      <div class="speaker-content">
+        <strong>Name Surname</strong>
+        <p>Key Points: ...</p>
+        <p>Lecture: ...</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <img src="https://via.placeholder.com/60" alt="Speaker" />
+      <div class="speaker-content">
+        <strong>Name Surname</strong>
+        <p>Key Points: ...</p>
+        <p>Lecture: ...</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <img src="https://via.placeholder.com/60" alt="Speaker" />
+      <div class="speaker-content">
+        <strong>Name Surname</strong>
+        <p>Key Points: ...</p>
+        <p>Lecture: ...</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="news">News, Articles, Patch Notes</h2>
+  <div class="news-section">
+    <p>Content coming soon...</p>
+  </div>
+</body>
+</html>
