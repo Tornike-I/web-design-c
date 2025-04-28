@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Menu Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url('abstract-geometric-background-with-blue-red-squares_669798-6693.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .menu-icon {
+      font-size: 36px;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      background-color: #0f1941;
+      color: white;
+      padding: 30px 20px;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -300px;
+      height: 100%;
+      border-radius: 20px;
+      transition: left 0.3s ease;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar.active {
+      left: 10px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .main-content {
+      padding: 20px;
+      margin-top: -50px;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .columns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .column {
+      background-color: #0f1941;
+      padding: 20px;
+      border-radius: 15px;
+      flex: 1 1 250px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      max-width: 300px;
+    }
+
+    .card {
+      background-color: #ffc896;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .card.green {
+      background-color: #b0ffc6;
+      font-size: 20px;
+    }
+
+    .card.red {
+      background-color: #ff9b9b;
+      font-size: 20px;
+    }
+
+    .section {
+      padding: 50px 20px 20px 20px;
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <nav class="sidebar" id="sidebar">
+    <a onclick="showSection('main')">Main Menu</a>
+    <a onclick="showSection('event-details')">Event Details</a>
+    <a href="#">Speakers</a>
+    <a href="#">Dates</a>
+    <a href="#">Location And Venue</a>
+    <a href="#">News And Updates</a>
+    <a href="#">Tickets</a>
+  </nav>
+
+  <div class="main-content" id="main">
+    <div class="main-title">Main Menu</div>
+
+    <div class="columns">
+      <div class="column">
+        <div class="card">📅 Dates</div>
+      </div>
+      <div class="column">
+        <div class="card green">📍 Location and Venue</div>
+      </div>
+      <div class="column">
+        <div class="card red">📰 News And Updates</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="event-details">
+    Event Details
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function showSection(sectionId) {
+      const sections = ['main', 'event-details'];
+      sections.forEach(id => {
+        document.getElementById(id).style.display = id === sectionId ? 'block' : 'none';
+      });
+      toggleMenu();
+    }
+  </script>
+</body>
+</html>
