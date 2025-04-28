@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b2d8e1; /* light blue */
+    }
+    .navbar {
+      display: flex;
+      background-color: #0a1633; /* dark blue */
+      color: white;
+    }
+    .navbar div {
+      flex: 1;
+      text-align: center;
+      padding: 1em;
+      border-right: 1px solid white;
+      cursor: pointer;
+    }
+    .navbar div:last-child {
+      border-right: none;
+    }
+    table td {
+    text-align: left;
+    }
+    .header {
+      background-color: #0a1633;
+      color: white;
+      text-align: center;
+      padding: 1.5em 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+      padding: 2em;
+    }
+    .left-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 2em;
+      padding-right: 2em;
+    }
+    .icon-text {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .icon {
+      font-size: 1.5em;
+    }
+    .details-text {
+      background-color: white;
+      width: 150px;
+      height: 50px;
+    }
+    .right-side {
+      flex: 2;
+      background-color: #0a1633;
+      padding: 1em;
+      border-radius: 8px;
+      color: white;
+    }
+    .agenda-title {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 1em;
+    }
+    .agenda-title img {
+      width: 24px;
+      height: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #4f6c94;
+      padding: 0.5em;
+      text-align: center;
+    }
+    th {
+      background-color: #0a1633;
+      color: white;
+    }
+    td {
+      background-color: #1c2d50;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div>Event Details</div>
+    <div>Speakers</div>
+    <div>News, Articles, Patch Notes</div>
+  </div>
+
+  <div class="header">
+    Event Details
+  </div>
+
+  <div class="container">
+    <div class="left-side">
+      <div class="icon-text">
+        <div class="icon">📍</div>
+        <div class="details-text"></div>
+      </div>
+      <div class="icon-text">
+        <div class="icon">✉️</div>
+        <div class="details-text"></div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="agenda-title">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/calendar.png" alt="calendar">
+        <h2>The AI Agenda: Navigating Innovation</h2>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Day 1 – Foundations & Emerging Trends (October 15)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div>09:00 – Registration & Networking</div></td>
+          </tr>
+          <tr>
+            <td><div>10:00 – Opening Keynote: “The Dawn of AI: Charting New Horizons” by Dr. Olivia Thompson</div></td>
+          </tr>
+          <tr>
+            <td><div>11:15 – Panel Discussion: “Building the Intelligent Future” </div></td>
+          </tr>
+          <tr>
+            <td><div>12:30 – Lunch Break</div></td>
+          </tr>
+          <tr>
+            <td><div>13:30 – Workshop: “Hands-on with AI Tools”</div></td>
+          </tr>
+          <tr>
+            <td><div>15:30 – Closing Keynote: “The Evolution of Machine Learning” by Prof. Liam O’Connor</div></td>
+          </tr>
+          <tr>
+            <td><div>16:30 – Evening Networking Session</div></td>
+          </tr>
+        </tbody>
+          <thead>
+          <tr>
+            <th>Day 2 – Ethics & Innovations (October 16)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div>08:30 – Registration</div></td>
+          </tr>
+          <tr>
+            <td><div></div>09:00 – Keynote: “Ethics in the Age of AI” by Dr. Sophia Chen</td>
+          </tr>
+          <tr>
+            <td><div>10:15 – Breakout Sessions: “AI in Healthcare, Finance, and Education”</div></td>
+          </tr>
+          <tr>
+            <td><div>12:00 – Lunch</div></td>
+          </tr>
+          <tr>
+            <td><div>13:00 – Workshop: “Deep Learning Demystified”</div></td>
+          </tr>
+          <tr>
+            <td><div>14:45 – Panel Discussion: “AI and Data Privacy”</div></td>
+          </tr>
+          <tr>
+            <td><div>16:15 – Evening Networking Event</div></td>
+          </tr>
+        </tbody>
+          <thead>
+          <tr>
+            <th>Day 3  – Applications & Future Directions (October 17)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div>09:00 – Registration</div></td>
+          </tr>
+          <tr>
+            <td><div>09:30 – Opening Keynote: “The Intersection of AI and IoT” by Dr. Khalid Al-Rashid</div></td>
+          </tr>
+          <tr>
+            <td><div>10:45 – Fireside Chat: “The Future of Cognitive Computing” by Prof. Neha Desai</div></td>
+          </tr>
+          <tr>
+            <td><div>11:45 – Coffee Break</div></td>
+          </tr>
+          <tr>
+            <td><div>12:15 – Workshop: “Innovative Applications of AI”</div></td>
+          </tr>
+          <tr>
+            <td><div>13:45 – Lunch</div></td>
+          </tr>
+          <tr>
+            <td><div>15:00 – Closing Panel: “Charting the Future of AI” featuring all speakers</div></td>
+          </tr>
+          <tr>
+            <td><div>16:30 – Farewell Networking & Refreshments</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
