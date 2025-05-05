@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Menu Layout</title>
   <style>
     * {
@@ -137,7 +137,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
       max-width: 300px;
     }
 
@@ -188,17 +187,57 @@
       background-color: #0f1941;
     }
 
-    @media (max-width: 768px) {
-      .main-content {
-        padding: 10px;
-        padding-top: 100px;
-      }
+    .map-container {
+      margin-top: 100px;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .news-container {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .news-card {
+      background-color: rgba(15, 25, 65, 0.85);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .news-card p {
+      font-size: 16px;
+      line-height: 1.5;
     }
   </style>
 </head>
+
 <body>
   <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
   <nav class="sidebar" id="sidebar">
@@ -206,23 +245,17 @@
     <a onclick="scrollToSection('event-details')">Event Details</a>
     <a onclick="scrollToSection('speakers')">Speakers</a>
     <a onclick="scrollToSection('dates')">Dates</a>
-    <a href="#">Location And Venue</a>
-    <a href="#">News And Updates</a>
-    <a href="#">Tickets</a>
+    <a onclick="scrollToSection('location-venue')">Location And Venue</a>
+    <a onclick="scrollToSection('news-updates')">News And Updates</a>
+    <a onclick="scrollToSection('tickets')">Tickets</a>
   </nav>
 
   <div id="main" class="main-content section-wrapper">
     <div class="main-title">Main Menu</div>
     <div class="columns">
-      <div class="column">
-        <div class="card">📅 Dates</div>
-      </div>
-      <div class="column">
-        <div class="card green">📍 Location and Venue</div>
-      </div>
-      <div class="column">
-        <div class="card red">📰 News And Updates</div>
-      </div>
+      <div class="column"><div class="card">📅 Dates</div></div>
+      <div class="column"><div class="card green">📍 Location and Venue</div></div>
+      <div class="column"><div class="card red">📰 News And Updates</div></div>
     </div>
   </div>
 
@@ -238,48 +271,46 @@
     <div class="main-title">Dates</div>
     <div class="dates-table">
       <table>
-        <tr>
-          <th>Day 1</th>
-          <th>Day 2</th>
-          <th>Day 3</th>
-        </tr>
-        <tr>
-          <td>9:00</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10:00</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>11:15</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>12:30</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>13:30</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>15:30</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>16:30</td>
-          <td></td>
-          <td></td>
-        </tr>
+        <tr><th>Day 1</th><th>Day 2</th><th>Day 3</th></tr>
+        <tr><td>9:00</td><td></td><td></td></tr>
+        <tr><td>10:00</td><td></td><td></td></tr>
+        <tr><td>11:15</td><td></td><td></td></tr>
+        <tr><td>12:30</td><td></td><td></td></tr>
+        <tr><td>13:30</td><td></td><td></td></tr>
+        <tr><td>15:30</td><td></td><td></td></tr>
+        <tr><td>16:30</td><td></td><td></td></tr>
       </table>
     </div>
+  </div>
+
+  <div id="location-venue" class="section-wrapper">
+    <div class="main-title">Location And Venue</div>
+    <div class="map-container">
+      <img src="/mnt/data/Desktop - 7.png" alt="Location and Venue Map" />
+    </div>
+  </div>
+
+  <div id="news-updates" class="section-wrapper">
+    <div class="main-title">News And Updates</div>
+    <div class="news-container">
+      <div class="news-card">
+        <h3>🎉 Major Keynote Announced</h3>
+        <p>Our headline speaker for Day 1 is confirmed! Get ready for an inspiring session.</p>
+      </div>
+      <div class="news-card">
+        <h3>🚨 Ticket Prices Rise Soon</h3>
+        <p>Buy your tickets before the price increase on May 10th!</p>
+      </div>
+      <div class="news-card">
+        <h3>📣 Workshop Schedule Released</h3>
+        <p>Check out the full workshop agenda now available on the Dates page.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tickets" class="section-wrapper">
+    <div class="main-title">Tickets</div>
+    <!-- Optional: Add ticket options here -->
   </div>
 
   <script>
@@ -299,9 +330,7 @@
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.section-wrapper').forEach(section => {
       observer.observe(section);
