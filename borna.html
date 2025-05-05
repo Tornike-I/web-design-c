@@ -203,9 +203,10 @@
     }
 
     .news-container {
-      margin-top: 60px;
+      margin-top: 150px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 20px;
       width: 90%;
       max-width: 800px;
@@ -218,6 +219,7 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease;
+      width: 100%;
     }
 
     .news-card:hover {
@@ -232,6 +234,21 @@
     .news-card p {
       font-size: 16px;
       line-height: 1.5;
+    }
+
+    .buy-button {
+      background-color: #ffc107;
+      border: none;
+      color: #0f1941;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #ff9800;
     }
   </style>
 </head>
@@ -307,12 +324,35 @@
       </div>
     </div>
   </div>
-
   <div id="tickets" class="section-wrapper">
     <div class="main-title">Tickets</div>
-    <!-- Optional: Add ticket options here -->
+    <div class="columns" style="margin-top: 150px;">
+      <div class="column">
+        <div class="card">🎟️ Early Bird</div>
+        <p style="color:white; font-size:18px;">Discounted rate for early registrants</p>
+        <p style="color:white; font-size:24px; font-weight:bold;">€299</p>
+        <button class="buy-button" style="margin-top:auto;">Buy Now</button>
+      </div>
+      <div class="column">
+        <div class="card green">🎟️ Standard Admission</div>
+        <p style="color:white; font-size:18px;">Regular access to all sessions</p>
+        <p style="color:white; font-size:24px; font-weight:bold;">€349</p>
+        <button class="buy-button" style="margin-top:auto;">Buy Now</button>
+      </div>
+      <div class="column">
+        <div class="card red">👑 VIP Package</div>
+        <p style="color:white; font-size:18px;">Includes networking events + workshops</p>
+        <p style="color:white; font-size:24px; font-weight:bold;">€499</p>
+        <button class="buy-button" style="margin-top:auto;">Buy Now</button>
+      </div>
+      <div class="column">
+        <div class="card">🎓 Educational Ticket</div>
+        <p style="color:white; font-size:18px;">Available for students & educators</p>
+        <p style="color:white; font-size:24px; font-weight:bold;">€199</p>
+        <button class="buy-button" style="margin-top:auto;">Buy Now</button>
+      </div>
+    </div>
   </div>
-
   <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
