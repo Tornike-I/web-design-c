@@ -4,262 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Menu Layout</title>
-<<<<<<< HEAD
   <link rel="stylesheet" href="styles.css">
-=======
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: url('abstract-geometric-background-with-blue-red-squares_669798-6693 (1).png') no-repeat center center fixed;
-      background-size: cover;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      overflow-y: scroll;
-    }
-
-    .menu-icon {
-      font-size: 36px;
-      padding: 20px;
-      cursor: pointer;
-      position: fixed;
-      z-index: 1100;
-      top: 20px;
-      left: 20px;
-    }
-
-    .sidebar {
-      background-color: #0f1941;
-      color: white;
-      padding: 30px 20px;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: -300px;
-      height: 100%;
-      border-radius: 20px;
-      transition: left 0.3s ease;
-      z-index: 1001;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-top: 100px;
-    }
-
-    .sidebar.active {
-      left: 10px;
-    }
-
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      cursor: pointer;
-      padding: 10px 0;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      z-index: 1000;
-    }
-
-    .overlay.active {
-      display: block;
-    }
-
-    .section-wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease;
-      padding: 80px 20px 20px 20px;
-      position: relative;
-    }
-
-    .section-wrapper.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .main-content {
-      padding: 20px;
-      margin-top: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding-top: 100px;
-      position: relative;
-    }
-
-    .main-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 30px;
-      color: white;
-      margin-top: 0;
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .columns {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 100px;
-    }
-
-    .column {
-      background-color: #0f1941;
-      padding: 20px;
-      border-radius: 15px;
-      flex: 1 1 250px;
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 300px;
-    }
-
-    .card {
-      background-color: #ffc896;
-      padding: 10px 20px;
-      border-radius: 15px;
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
-      width: fit-content;
-    }
-
-    .card.green {
-      background-color: #b0ffc6;
-      font-size: 20px;
-    }
-
-    .card.red {
-      background-color: #ff9b9b;
-      font-size: 20px;
-    }
-
-    .dates-table {
-      margin-top: 100px;
-      width: 90%;
-      max-width: 900px;
-      background-color: #0f1941;
-      border-radius: 15px;
-      overflow: hidden;
-      color: white;
-      font-size: 18px;
-    }
-
-    .dates-table table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .dates-table th, .dates-table td {
-      border: 1px solid white;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .dates-table td:first-child {
-      font-weight: bold;
-      background-color: #0f1941;
-    }
-
-    .map-container {
-      margin-top: 100px;
-      width: 90%;
-      max-width: 900px;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-
-    .map-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 15px;
-    }
-
-    .news-container {
-      margin-top: 150px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;           /* center horizontally */
-      justify-content: center;       /* center vertically */
-      gap: 20px;
-      width: 100%;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .news-card {
-      background-color: rgba(15, 25, 65, 0.85);
-      color: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .news-card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .news-card p {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .buy-button {
-      background-color: #ffc107;
-      border: none;
-      color: #0f1941;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .buy-button:hover {
-      background-color: #ff9800;
-    }
-  </style>
->>>>>>> dc719a2366d9cee52400da37697225a6e5b829a8
 </head>
 
 <body>
@@ -295,22 +40,99 @@
 
   <div id="speakers" class="section-wrapper">
     <div class="main-title">Speakers</div>
-    <div>somthing mroe</div>
   </div>
 
   <div id="dates" class="section-wrapper">
     <div class="main-title">Dates</div>
-    <div class="dates-table">
-      <table>
-        <tr><th>Day 1</th><th>Day 2</th><th>Day 3</th></tr>
-        <tr><td>9:00</td><td></td><td></td></tr>
-        <tr><td>10:00</td><td></td><td></td></tr>
-        <tr><td>11:15</td><td></td><td></td></tr>
-        <tr><td>12:30</td><td></td><td></td></tr>
-        <tr><td>13:30</td><td></td><td></td></tr>
-        <tr><td>15:30</td><td></td><td></td></tr>
-        <tr><td>16:30</td><td></td><td></td></tr>
-      </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Day 1 – Foundations & Emerging Trends (October 15)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>09:00 – Registration & Networking</div></td>
+            </tr>
+            <tr>
+              <td><div>10:00 – Opening Keynote: “The Dawn of AI: Charting New Horizons” by Dr. Olivia Thompson</div></td>
+            </tr>
+            <tr>
+              <td><div>11:15 – Panel Discussion: “Building the Intelligent Future” </div></td>
+            </tr>
+            <tr>
+              <td><div>12:30 – Lunch Break</div></td>
+            </tr>
+            <tr>
+              <td><div>13:30 – Workshop: “Hands-on with AI Tools”</div></td>
+            </tr>
+            <tr>
+              <td><div>15:30 – Closing Keynote: “The Evolution of Machine Learning” by Prof. Liam O’Connor</div></td>
+            </tr>
+            <tr>
+              <td><div>16:30 – Evening Networking Session</div></td>
+            </tr>
+          </tbody>
+            <thead>
+            <tr>
+              <th>Day 2 – Ethics & Innovations (October 16)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>08:30 – Registration</div></td>
+            </tr>
+            <tr>
+              <td><div></div>09:00 – Keynote: “Ethics in the Age of AI” by Dr. Sophia Chen</td>
+            </tr>
+            <tr>
+              <td><div>10:15 – Breakout Sessions: “AI in Healthcare, Finance, and Education”</div></td>
+            </tr>
+            <tr>
+              <td><div>12:00 – Lunch</div></td>
+            </tr>
+            <tr>
+              <td><div>13:00 – Workshop: “Deep Learning Demystified”</div></td>
+            </tr>
+            <tr>
+              <td><div>14:45 – Panel Discussion: “AI and Data Privacy”</div></td>
+            </tr>
+            <tr>
+              <td><div>16:15 – Evening Networking Event</div></td>
+            </tr>
+          </tbody>
+            <thead>
+            <tr>
+              <th>Day 3  – Applications & Future Directions (October 17)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>09:00 – Registration</div></td>
+            </tr>
+            <tr>
+              <td><div>09:30 – Opening Keynote: “The Intersection of AI and IoT” by Dr. Khalid Al-Rashid</div></td>
+            </tr>
+            <tr>
+              <td><div>10:45 – Fireside Chat: “The Future of Cognitive Computing” by Prof. Neha Desai</div></td>
+            </tr>
+            <tr>
+              <td><div>11:45 – Coffee Break</div></td>
+            </tr>
+            <tr>
+              <td><div>12:15 – Workshop: “Innovative Applications of AI”</div></td>
+            </tr>
+            <tr>
+              <td><div>13:45 – Lunch</div></td>
+            </tr>
+            <tr>
+              <td><div>15:00 – Closing Panel: “Charting the Future of AI” featuring all speakers</div></td>
+            </tr>
+            <tr>
+              <td><div>16:30 – Farewell Networking & Refreshments</div></td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 
