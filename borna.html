@@ -4,7 +4,255 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Menu Layout</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url('abstract-geometric-background-with-blue-red-squares_669798-6693 (1).png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .menu-icon {
+      font-size: 36px;
+      padding: 20px;
+      cursor: pointer;
+      position: fixed;
+      z-index: 1100;
+      top: 20px;
+      left: 20px;
+    }
+
+    .sidebar {
+      background-color: #0f1941;
+      color: white;
+      padding: 30px 20px;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -300px;
+      height: 100%;
+      border-radius: 20px;
+      transition: left 0.3s ease;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 100px;
+    }
+
+    .sidebar.active {
+      left: 10px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 10px 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .section-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+      padding: 80px 20px 20px 20px;
+      position: relative;
+    }
+
+    .section-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .main-content {
+      padding: 20px;
+      margin-top: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: white;
+      margin-top: 0;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .columns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .column {
+      background-color: #0f1941;
+      padding: 20px;
+      border-radius: 15px;
+      flex: 1 1 250px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 300px;
+    }
+
+    .card {
+      background-color: #ffc896;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .card.green {
+      background-color: #b0ffc6;
+      font-size: 20px;
+    }
+
+    .card.red {
+      background-color: #ff9b9b;
+      font-size: 20px;
+    }
+
+    .dates-table {
+      margin-top: 100px;
+      width: 90%;
+      max-width: 900px;
+      background-color: #0f1941;
+      border-radius: 15px;
+      overflow: hidden;
+      color: white;
+      font-size: 18px;
+    }
+
+    .dates-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .dates-table th, .dates-table td {
+      border: 1px solid white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .dates-table td:first-child {
+      font-weight: bold;
+      background-color: #0f1941;
+    }
+
+    .map-container {
+      margin-top: 100px;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .news-container {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;           /* center horizontally */
+    justify-content: center;       /* center vertically */
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+    .news-card {
+      background-color: rgba(15, 25, 65, 0.85);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .news-card p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .buy-button {
+      background-color: #ffc107;
+      border: none;
+      color: #0f1941;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #ff9800;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,20 +268,16 @@
     <a onclick="scrollToSection('news-updates')">News And Updates</a>
     <a onclick="scrollToSection('tickets')">Tickets</a>
   </nav>
-  <div id="main" class="section-wrapper">
-  <div class="main-title">Main Menu</div>
-  <div class="columns">
-    <div class="column">
-      <div class="card">📅 Dates</div>
-    </div>
-    <div class="column">
-      <div class="card green">📍 Location and Venue</div>
-    </div>
-    <div class="column">
-      <div class="card red">📰 News And Updates</div>
+
+  <div id="main" class="main-content section-wrapper">
+    <div class="main-title">Main Menu</div>
+    <div class="columns">
+      <div class="column"><div class="card">📅 Dates</div></div>
+      <div class="column"><div class="card green">📍 Location and Venue</div></div>
+      <div class="column"><div class="card red">📰 News And Updates</div></div>
     </div>
   </div>
-</div>
+
   <div id="event-details" class="section-wrapper">
     <div class="main-title">Event Details</div>
   </div>
@@ -144,51 +388,55 @@
   </div>
 
   <div id="news-updates" class="section-wrapper">
-    <div class="main-title">News And Updates</div>
-    <div class="news-container">
-      <div class="news-card">
-        <h3>🎉 Major Keynote Announced</h3>
-        <p>Our headline speaker for Day 1 is confirmed! Get ready for an inspiring session.</p>
-      </div>
-      <div class="news-card">
-        <h3>🚨 Ticket Prices Rise Soon</h3>
-        <p>Buy your tickets before the price increase on May 10th!</p>
-      </div>
-      <div class="news-card">
-        <h3>📣 Workshop Schedule Released</h3>
-        <p>Check out the full workshop agenda now available on the Dates page.</p>
-      </div>
+  <div class="main-title">News And Updates</div>
+  <div class="news-container">
+    <div class="news-card">
+      <h3>🎉 Major Keynote Announced</h3>
+      <p>Our headline speaker for Day 1 is confirmed! Get ready for an inspiring session.</p>
     </div>
-  </div>
-  <div id="tickets" class="section-wrapper">
-  <div class="main-title">Tickets</div>
-  <div class="columns">
-    <div class="column">
-      <div class="card">🎟️ Early Bird</div>
-      <p style="color:white; font-size:18px;">Discounted entry for early buyers</p>
-      <p style="color:white; font-size:24px; font-weight:bold;">€299</p>
-      <button class="buy-button">Buy Now</button>
+    <div class="news-card">
+      <h3>🚨 Ticket Prices Rise Soon</h3>
+      <p>Buy your tickets before the price increase on May 10th!</p>
     </div>
-    <div class="column">
-      <div class="card green">🎫 Standard Admission</div>
-      <p style="color:white; font-size:18px;">Regular entry to all sessions</p>
-      <p style="color:white; font-size:24px; font-weight:bold;">€349</p>
-      <button class="buy-button">Buy Now</button>
-    </div>
-    <div class="column">
-      <div class="card red">👑 VIP Package</div>
-      <p style="color:white; font-size:18px;">All access + networking + workshops</p>
-      <p style="color:white; font-size:24px; font-weight:bold;">€499</p>
-      <button class="buy-button">Buy Now</button>
-    </div>
-    <div class="column">
-      <div class="card">🎓 Educational Ticket</div>
-      <p style="color:white; font-size:18px;">For students and educators only</p>
-      <p style="color:white; font-size:24px; font-weight:bold;">€199</p>
-      <button class="buy-button">Buy Now</button>
+    <div class="news-card">
+      <h3>📣 Workshop Schedule Released</h3>
+      <p>Check out the full workshop agenda now available on the Dates page.</p>
     </div>
   </div>
 </div>
+  </div>
+  </div>
+  <div id="tickets" class="section-wrapper">
+  <div class="main-title">Tickets</div>
+  <div class="columns" style="margin-top: 100px; justify-content: center;">
+    <div class="column">
+      <div class="card">🎫 Early Bird</div>
+      <p style="color:white; font-size:18px;">Access to all sessions</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€299</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card green">⭐ Standard Admission</div>
+      <p style="color:white; font-size:18px;">Keynotes + All Events</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€349</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card red">👑 VIP Package</div>
+      <p style="color:white; font-size:18px;">Includes exclusive networking and workshops</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€499</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card">🎓 Educational</div>
+      <p style="color:white; font-size:18px;">Students and Educators</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€199</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+  </div>
+</div>
+  </div>
+  </div>
   <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
