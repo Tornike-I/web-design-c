@@ -590,3 +590,36 @@ iframe, .overlay, .menu-icon {
   z-index: 999 !important;
 }
 
+.card {
+  background-color: #ffc896;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.card-description {
+  font-size: 16px;
+  color: #000;
+}
+
+.card.green .card-title,
+.card.red .card-title {
+  font-size: 20px;
+}
+
+.card.green {
+  background-color: #b0ffc6;
+}
+
+.card.red {
+  background-color: #ff9b9b;
+}
