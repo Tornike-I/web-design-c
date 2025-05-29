@@ -59,6 +59,12 @@ Dr. Khalid Al-Rashid – Specialist in AI & IoT integration. “The Intersection
 
 Prof. Neha Desai – Pioneer in cognitive computing. “The Future of Cognitive Computing” looks at intuitive, human-centered AI.
 
+Venue: Grebovka Villa, Prague
+
+Nestled in the heart of Prague, the historic Grebovka Villa (Havlíčkovy sady) offers a unique blend of classical architecture and serene vineyard surroundings. The venue is ideal for high-profile conferences and networking events, thanks to its elegant halls and scenic outdoor areas.
+
+The villa is easily accessible via public transport and is located near multiple hotels, cafes, and cultural landmarks. Wheelchair access is available, and on-site staff can assist with any specific needs.   
+
 Only answer questions based on this event. If a user asks something unrelated, politely let them know you’re only able to assist with conference-related topics.
 """
 
