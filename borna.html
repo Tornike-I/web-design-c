@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Main Menu Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<section id="intro" style="position: relative; height: 100vh; background: url('ChatGPT Image May 12, 2025, 07_09_54 PM copy.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+  <div style="color: white; font-size: 2.5rem; font-weight: bold; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
+  </div>
+  <div id="arrow-down" onclick="scrollToSection('main', true)" style="cursor: pointer; position: absolute; bottom: 30px; animation: bounce 2s infinite;">
+    ⬇️
+  </div>
+  
+</section>
+
+<style>
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-8px); }
+  }
+
+  #arrow-down {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  }
+  
+  .intro {
+  position: relative;
+  height: 100vh;
+  background: url('your-image-file-name.png') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* align top instead of center */
+  padding-top: 200px; /* 👈 move everything down from the top */
+}
+
+</style>
+
+  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <nav class="sidebar" id="sidebar">
+    <a onclick="scrollToSection('main')">Main Menu</a>
+    <a onclick="scrollToSection('event-details')">Event Details</a>
+    <a onclick="scrollToSection('speakers')">Speakers</a>
+    <a onclick="scrollToSection('dates')">Dates</a>
+    <a onclick="scrollToSection('location-venue')">Location And Venue</a>
+    <a onclick="scrollToSection('news-updates')">News And Updates</a>
+    <a onclick="scrollToSection('tickets')">Tickets</a>
+  </nav>
+
+  <div id="main" class="main-content section-wrapper">
+    <div class="main-title">Main Menu</div>
+    <div class="columns">
+      <div class="column"><div class="card">📅 Dates</div></div>
+      <div class="column"><div class="card green">📍 Location and Venue</div></div>
+      <div class="column"><div class="card red">📰 News And Updates</div></div>
+    </div>
+  </div>
+
+  <div id="event-details" class="section-wrapper">
+    <div class="main-title">Event Details</div>
+  </div>
+
+  <div id="speakers" class="section-wrapper">
+    <div class="main-title">Speakers</div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speakers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .speaker-card {
+      background: rgba(0, 20, 60, 0.85);
+      padding: 40px;
+      max-width: 1000px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .speaker-name {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .key-points {
+      text-align: left;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .key-points ul {
+      padding-left: 20px;
+    }
+
+    .lecture-title {
+      font-style: italic;
+      font-size: 1.2em;
+      margin: 20px 0 10px;
+    }
+
+    .lecture-description {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .speaker-card {
+        padding: 20px;
+      }
+
+      .speaker-name {
+        font-size: 1.5em;
+      }
+
+      .lecture-description {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <div class="speaker-card">
+    <div class="speaker-name">Dr. Olivia Thompson</div>
+    <div class="key-points">
+      <ul>
+        <li>Renowned AI researcher with a background in robotics and cognitive science.</li>
+        <li>Published influential studies on emerging AI technologies.</li>
+        <li>Passionate about exploring the transformative impact of AI on society.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Dawn of AI: Charting New Horizons”</div>
+    <div class="lecture-description">
+      Dr. Thompson’s keynote will trace the evolution of artificial intelligence from its humble beginnings to its revolutionary impact today. Her talk is designed to inspire attendees by highlighting breakthrough innovations and the pivotal moments that have shaped the AI landscape.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <div class="speaker-name">Prof. Liam O’Connor</div>
+    <div class="key-points">
+      <ul>
+        <li>Distinguished academic and expert in machine learning algorithms.</li>
+        <li>Celebrated for his engaging teaching style and pioneering research.</li>
+        <li>An advocate for integrating theory with practical application in technology.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Evolution of Machine Learning”</div>
+    <div class="lecture-description">
+      Prof. O’Connor’s presentation will offer a journey through the historical milestones and modern advancements in machine learning. His lecture will elucidate how foundational theories have evolved into the sophisticated techniques that power today’s intelligent systems.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <div class="speaker-name">Dr. Sophia Chen</div>
+    <div class="key-points">
+      <ul>
+        <li>Leading voice in AI ethics and technology policy.</li>
+        <li>Respected for her research on fairness, accountability, and transparency in tech.</li>
+        <li>A prominent advocate for responsible AI development.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “Ethics in the Age of AI”</div>
+    <div class="lecture-description">
+      In her compelling address, Dr. Chen will delve into the ethical challenges posed by rapid technological innovation. She will explore the balance between progress and responsibility, encouraging a dialogue on how best to ensure AI benefits society while mitigating risks.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <div class="speaker-name">Dr. Khalid Al-Rashid</div>
+    <div class="key-points">
+      <ul>
+        <li>Specialist in the convergence of AI and the Internet of Things (IoT).</li>
+        <li>Focuses on integrating smart systems into everyday environments.</li>
+        <li>Recognized for his forward-thinking insights on technological integration.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Intersection of AI and IoT”</div>
+    <div class="lecture-description">
+      Dr. Al-Rashid’s lecture will explore the synergies between AI and IoT, illustrating how interconnected devices are evolving into intelligent systems. His insights will highlight real-world applications and future trends that promise to revolutionize how we interact with technology.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <div class="speaker-name">Prof. Neha Desai</div>
+    <div class="key-points">
+      <ul>
+        <li>Visionary leader in cognitive computing and human-AI interaction.</li>
+        <li>Known for her innovative approach to blending technology with user experience.</li>
+        <li>Passionate about unlocking AI’s potential to enhance human capabilities.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Future of Cognitive Computing”</div>
+    <div class="lecture-description">
+      Prof. Desai’s session will provide an engaging forecast of cognitive computing trends, discussing how AI systems are becoming more intuitive and adaptive. Her lecture is set to challenge conventional thinking and inspire new perspectives on the integration of technology and human insight.
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
+  </div>
+
+  <div id="dates" class="section-wrapper">
+    <div class="main-title">Dates</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Day 1 – Foundations & Emerging Trends (October 15)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>09:00 – Registration & Networking</div></td>
+            </tr>
+            <tr>
+              <td><div>10:00 – Opening Keynote: “The Dawn of AI: Charting New Horizons” by Dr. Olivia Thompson</div></td>
+            </tr>
+            <tr>
+              <td><div>11:15 – Panel Discussion: “Building the Intelligent Future” </div></td>
+            </tr>
+            <tr>
+              <td><div>12:30 – Lunch Break</div></td>
+            </tr>
+            <tr>
+              <td><div>13:30 – Workshop: “Hands-on with AI Tools”</div></td>
+            </tr>
+            <tr>
+              <td><div>15:30 – Closing Keynote: “The Evolution of Machine Learning” by Prof. Liam O’Connor</div></td>
+            </tr>
+            <tr>
+              <td><div>16:30 – Evening Networking Session</div></td>
+            </tr>
+          </tbody>
+            <thead>
+            <tr>
+              <th>Day 2 – Ethics & Innovations (October 16)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>08:30 – Registration</div></td>
+            </tr>
+            <tr>
+              <td><div></div>09:00 – Keynote: “Ethics in the Age of AI” by Dr. Sophia Chen</td>
+            </tr>
+            <tr>
+              <td><div>10:15 – Breakout Sessions: “AI in Healthcare, Finance, and Education”</div></td>
+            </tr>
+            <tr>
+              <td><div>12:00 – Lunch</div></td>
+            </tr>
+            <tr>
+              <td><div>13:00 – Workshop: “Deep Learning Demystified”</div></td>
+            </tr>
+            <tr>
+              <td><div>14:45 – Panel Discussion: “AI and Data Privacy”</div></td>
+            </tr>
+            <tr>
+              <td><div>16:15 – Evening Networking Event</div></td>
+            </tr>
+          </tbody>
+            <thead>
+            <tr>
+              <th>Day 3  – Applications & Future Directions (October 17)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div>09:00 – Registration</div></td>
+            </tr>
+            <tr>
+              <td><div>09:30 – Opening Keynote: “The Intersection of AI and IoT” by Dr. Khalid Al-Rashid</div></td>
+            </tr>
+            <tr>
+              <td><div>10:45 – Fireside Chat: “The Future of Cognitive Computing” by Prof. Neha Desai</div></td>
+            </tr>
+            <tr>
+              <td><div>11:45 – Coffee Break</div></td>
+            </tr>
+            <tr>
+              <td><div>12:15 – Workshop: “Innovative Applications of AI”</div></td>
+            </tr>
+            <tr>
+              <td><div>13:45 – Lunch</div></td>
+            </tr>
+            <tr>
+              <td><div>15:00 – Closing Panel: “Charting the Future of AI” featuring all speakers</div></td>
+            </tr>
+            <tr>
+              <td><div>16:30 – Farewell Networking & Refreshments</div></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div id="location-venue" class="section-wrapper">
+    <div class="main-title">Location And Venue</div>
+    <div class="map-container">
+      <img src="/mnt/data/Desktop - 7.png" alt="Location and Venue Map" />
+    </div>
+  </div>
+
+  <div id="news-updates" class="section-wrapper">
+  <div class="main-title">News And Updates</div>
+  <div class="news-container">
+    <div class="news-card">
+      <h3>🎉 Major Keynote Announced</h3>
+      <p>Our headline speaker for Day 1 is confirmed! Get ready for an inspiring session.</p>
+    </div>
+    <div class="news-card">
+      <h3>🚨 Ticket Prices Rise Soon</h3>
+      <p>Buy your tickets before the price increase on May 10th!</p>
+    </div>
+    <div class="news-card">
+      <h3>📣 Workshop Schedule Released</h3>
+      <p>Check out the full workshop agenda now available on the Dates page.</p>
+    </div>
+  </div>
+</div>
+  </div>
+  </div>
+  <div id="tickets" class="section-wrapper">
+  <div class="main-title">Tickets</div>
+  <div class="columns" style="margin-top: 100px; justify-content: center;">
+    <div class="column">
+      <div class="card">🎫 Early Bird</div>
+      <p style="color:white; font-size:18px;">Access to all sessions</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€299</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card green">⭐ Standard Admission</div>
+      <p style="color:white; font-size:18px;">Keynotes + All Events</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€349</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card red">👑 VIP Package</div>
+      <p style="color:white; font-size:18px;">Includes exclusive networking and workshops</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€499</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+    <div class="column">
+      <div class="card">🎓 Educational</div>
+      <p style="color:white; font-size:18px;">Students and Educators</p>
+      <p style="color:white; font-size:24px; font-weight:bold;">€199</p>
+      <button style="margin-top:auto;" class="buy-button">Buy Now</button>
+    </div>
+  </div>
+</div>
+  </div>
+  </div>
+  <script>
+    function scrollToSection(id, skipMenuToggle = false) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  if (!skipMenuToggle) {
+    toggleMenu();
+  }
+}
+
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      toggleMenu();
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-wrapper').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
