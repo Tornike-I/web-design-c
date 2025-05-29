@@ -8,12 +8,12 @@
 </head>
 
 <body>
-  <!-- Chat Toggle Icon -->
+<!-- Chat Toggle Button -->
 <button id="chat-toggle-btn" onclick="toggleChat()">💬</button>
 
-<!-- Chat Overlay -->
-<div id="chat-widget">
-  <div id="chat-header" onclick="toggleChat()">Chat</div>
+<!-- Chat Widget -->
+<div id="chat-widget" style="display: none;">
+  <div id="chat-header">Chat</div>  
   <div id="chat-body"></div>
   <div id="chat-input">
     <input type="text" id="user-message" placeholder="Type a message..." />
@@ -24,13 +24,12 @@
 <script>
   function toggleChat() {
     const chat = document.getElementById("chat-widget");
-    const toggleBtn = document.getElementById("chat-toggle-btn");
-    if (chat.style.display === "none") {
+    const isHidden = window.getComputedStyle(chat).display === "none";
+
+    if (isHidden) {
       chat.style.display = "flex";
-      toggleBtn.style.display = "none";
     } else {
       chat.style.display = "none";
-      toggleBtn.style.display = "flex";
     }
   }
 
@@ -44,16 +43,27 @@
     chatBody.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
     input.value = "";
 
-    const res = await fetch("/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
-    });
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
 
-    const data = await res.json();
-    chatBody.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
-    chatBody.scrollTop = chatBody.scrollHeight;
+      const data = await res.json();
+      chatBody.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    } catch (err) {
+      chatBody.innerHTML += `<div><strong>Bot:</strong> Error sending message</div>`;
+    }
   }
+
+  // Optional: Enable enter key to send
+  document.getElementById("user-message").addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
 </script>
 
 <section id="intro" style="position: relative; height: 100vh; background: url('static/banner.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
