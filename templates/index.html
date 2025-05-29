@@ -8,12 +8,12 @@
 </head>
 
 <body>
-  <!-- Chat Toggle Icon -->
+<!-- Chat Toggle Button -->
 <button id="chat-toggle-btn" onclick="toggleChat()">💬</button>
 
-<!-- Chat Overlay -->
-<div id="chat-widget">
-  <div id="chat-header" onclick="toggleChat()">Chat</div>
+<!-- Chat Widget -->
+<div id="chat-widget" style="display: none;">
+  <div id="chat-header">Chat</div>  
   <div id="chat-body"></div>
   <div id="chat-input">
     <input type="text" id="user-message" placeholder="Type a message..." />
@@ -24,13 +24,12 @@
 <script>
   function toggleChat() {
     const chat = document.getElementById("chat-widget");
-    const toggleBtn = document.getElementById("chat-toggle-btn");
-    if (chat.style.display === "none") {
+    const isHidden = window.getComputedStyle(chat).display === "none";
+
+    if (isHidden) {
       chat.style.display = "flex";
-      toggleBtn.style.display = "none";
     } else {
       chat.style.display = "none";
-      toggleBtn.style.display = "flex";
     }
   }
 
@@ -44,16 +43,27 @@
     chatBody.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
     input.value = "";
 
-    const res = await fetch("/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
-    });
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
 
-    const data = await res.json();
-    chatBody.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
-    chatBody.scrollTop = chatBody.scrollHeight;
+      const data = await res.json();
+      chatBody.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    } catch (err) {
+      chatBody.innerHTML += `<div><strong>Bot:</strong> Error sending message</div>`;
+    }
   }
+
+  // Optional: Enable enter key to send
+  document.getElementById("user-message").addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
 </script>
 
 <section id="intro" style="position: relative; height: 100vh; background: url('static/banner.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
@@ -95,7 +105,11 @@
 
 <section>
   <div class="speaker-card">
+<<<<<<< HEAD
     <img class="speaker-photo" src="static/ChatGPT Image May 29, 2025, 09_02_30 PM.png" alt="Dr. Olivia Thompson">
+=======
+    <img class="speaker-photo" src="static/Olivia.png" alt="Dr. Olivia Thompson">
+>>>>>>> 27f5865ca8f60b6523789225bd9881a443185a45
     <div class="speaker-name">Dr. Olivia Thompson</div>
     <div class="key-points">
       <ul>
@@ -113,7 +127,11 @@
 
 <section>
   <div class="speaker-card">
+<<<<<<< HEAD
     <img class="speaker-photo" src="static/ChatGPT Image May 29, 2025, 09_02_38 PM.png" alt="Prof. Liam O’Connor">
+=======
+    <img class="speaker-photo" src="static/liam.png" alt="Prof. Liam OConnor">
+>>>>>>> 27f5865ca8f60b6523789225bd9881a443185a45
     <div class="speaker-name">Prof. Liam O’Connor</div>
     <div class="key-points">
       <ul>
@@ -131,7 +149,11 @@
 
 <section>
   <div class="speaker-card">
+<<<<<<< HEAD
     <img class="speaker-photo" src="static/ChatGPT Image May 29, 2025, 09_02_56 PM.png" alt="Dr. Sophia Chen">
+=======
+    <img class="speaker-photo" src="static/sophia.png" alt="Dr. Sophia Chen">
+>>>>>>> 27f5865ca8f60b6523789225bd9881a443185a45
     <div class="speaker-name">Dr. Sophia Chen</div>
     <div class="key-points">
       <ul>
@@ -149,7 +171,11 @@
 
 <section>
   <div class="speaker-card">
+<<<<<<< HEAD
     <img class="speaker-photo" src="static/ChatGPT Image May 29, 2025, 09_02_40 PM.png" alt="Dr. Khalid Al-Rashid">
+=======
+    <img class="speaker-photo" src="static/khalid.png" alt="Dr. Khalid Al-Rashid">
+>>>>>>> 27f5865ca8f60b6523789225bd9881a443185a45
     <div class="speaker-name">Dr. Khalid Al-Rashid</div>
     <div class="key-points">
       <ul>
@@ -167,7 +193,11 @@
 
 <section>
   <div class="speaker-card">
+<<<<<<< HEAD
     <img class="speaker-photo" src="static/1000007017-Photoroom.png" alt="Prof. Neha Desai">
+=======
+    <img class="speaker-photo" src="static/neha.png" alt="Prof. Neha Desai">
+>>>>>>> 27f5865ca8f60b6523789225bd9881a443185a45
     <div class="speaker-name">Prof. Neha Desai</div>
     <div class="key-points">
       <ul>
