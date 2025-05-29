@@ -1,3 +1,6 @@
+#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
+#org-UNLSZPMidl5mKS6jQGupe8B2
+#proj_J1aj8axNAQmEUaht4AwEj49M
 from flask import Flask, request, jsonify, render_template
 import openai
 
@@ -5,9 +8,9 @@ app = Flask(__name__)
 
 # ✅ Use your real values here
 client = openai.OpenAI(
-    api_key="",
-    organization="",
-    project=""
+    api_key="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",
+    organization="org-UNLSZPMidl5mKS6jQGupe8B2",
+    project="proj_J1aj8axNAQmEUaht4AwEj49M"
 )
 
 # 💬 Bot instructions (event info goes here)
