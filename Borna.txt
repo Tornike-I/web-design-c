@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speakers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top right, #ed213a, #1a2a6c);
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+    }
+
+    section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .speaker-card {
+      background: rgba(0, 20, 60, 0.85);
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .speaker-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid white;
+    }
+
+    .speaker-name {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .key-points {
+      text-align: left;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .key-points ul {
+      padding-left: 20px;
+    }
+
+    .lecture-title {
+      font-style: italic;
+      font-size: 1.3em;
+      margin: 20px 0 10px;
+    }
+
+    .lecture-description {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      .speaker-card {
+        padding: 20px;
+      }
+
+      .speaker-name {
+        font-size: 1.6em;
+      }
+
+      .lecture-description,
+      .key-points {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <div class="speaker-card">
+    <img class="speaker-photo" src="olivia.jpg" alt="Dr. Olivia Thompson">
+    <div class="speaker-name">Dr. Olivia Thompson</div>
+    <div class="key-points">
+      <ul>
+        <li>Renowned AI researcher with a background in robotics and cognitive science.</li>
+        <li>Published influential studies on emerging AI technologies.</li>
+        <li>Passionate about exploring the transformative impact of AI on society.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Dawn of AI: Charting New Horizons”</div>
+    <div class="lecture-description">
+      Dr. Thompson’s keynote will trace the evolution of artificial intelligence from its humble beginnings to its revolutionary impact today. Her talk is designed to inspire attendees by highlighting breakthrough innovations and the pivotal moments that have shaped the AI landscape.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <img class="speaker-photo" src="liam.jpg" alt="Prof. Liam O’Connor">
+    <div class="speaker-name">Prof. Liam O’Connor</div>
+    <div class="key-points">
+      <ul>
+        <li>Distinguished academic and expert in machine learning algorithms.</li>
+        <li>Celebrated for his engaging teaching style and pioneering research.</li>
+        <li>An advocate for integrating theory with practical application in technology.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Evolution of Machine Learning”</div>
+    <div class="lecture-description">
+      Prof. O’Connor’s presentation will offer a journey through the historical milestones and modern advancements in machine learning. His lecture will elucidate how foundational theories have evolved into the sophisticated techniques that power today’s intelligent systems.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <img class="speaker-photo" src="sophia.jpg" alt="Dr. Sophia Chen">
+    <div class="speaker-name">Dr. Sophia Chen</div>
+    <div class="key-points">
+      <ul>
+        <li>Leading voice in AI ethics and technology policy.</li>
+        <li>Respected for her research on fairness, accountability, and transparency in tech.</li>
+        <li>A prominent advocate for responsible AI development.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “Ethics in the Age of AI”</div>
+    <div class="lecture-description">
+      In her compelling address, Dr. Chen will delve into the ethical challenges posed by rapid technological innovation. She will explore the balance between progress and responsibility, encouraging a dialogue on how best to ensure AI benefits society while mitigating risks.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <img class="speaker-photo" src="khalid.jpg" alt="Dr. Khalid Al-Rashid">
+    <div class="speaker-name">Dr. Khalid Al-Rashid</div>
+    <div class="key-points">
+      <ul>
+        <li>Specialist in the convergence of AI and the Internet of Things (IoT).</li>
+        <li>Focuses on integrating smart systems into everyday environments.</li>
+        <li>Recognized for his forward-thinking insights on technological integration.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Intersection of AI and IoT”</div>
+    <div class="lecture-description">
+      Dr. Al-Rashid’s lecture will explore the synergies between AI and IoT, illustrating how interconnected devices are evolving into intelligent systems. His insights will highlight real-world applications and future trends that promise to revolutionize how we interact with technology.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="speaker-card">
+    <img class="speaker-photo" src="neha.jpg" alt="Prof. Neha Desai">
+    <div class="speaker-name">Prof. Neha Desai</div>
+    <div class="key-points">
+      <ul>
+        <li>Visionary leader in cognitive computing and human-AI interaction.</li>
+        <li>Known for her innovative approach to blending technology with user experience.</li>
+        <li>Passionate about unlocking AI’s potential to enhance human capabilities.</li>
+      </ul>
+    </div>
+    <div class="lecture-title">Lecture – “The Future of Cognitive Computing”</div>
+    <div class="lecture-description">
+      Prof. Desai’s session will provide an engaging forecast of cognitive computing trends, discussing how AI systems are becoming more intuitive and adaptive. Her lecture is set to challenge conventional thinking and inspire new perspectives on the integration of technology and human insight.
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
