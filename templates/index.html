@@ -4,11 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Menu Layout</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
-<section id="intro" style="position: relative; height: 100vh; background: url('ChatGPT Image May 12, 2025, 07_09_54 PM copy.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+  <!-- Chat Toggle Icon -->
+<button id="chat-toggle-btn" onclick="toggleChat()">💬</button>
+
+<!-- Chat Overlay -->
+<div id="chat-widget">
+  <div id="chat-header" onclick="toggleChat()">Chat</div>
+  <div id="chat-body"></div>
+  <div id="chat-input">
+    <input type="text" id="user-message" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChat() {
+    const chat = document.getElementById("chat-widget");
+    const toggleBtn = document.getElementById("chat-toggle-btn");
+    if (chat.style.display === "none") {
+      chat.style.display = "flex";
+      toggleBtn.style.display = "none";
+    } else {
+      chat.style.display = "none";
+      toggleBtn.style.display = "flex";
+    }
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById("user-message");
+    const chatBody = document.getElementById("chat-body");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    chatBody.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+    input.value = "";
+
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+    chatBody.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+
+<section id="intro" style="position: relative; height: 100vh; background: url('static/banner.png') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
   <div style="color: white; font-size: 2.5rem; font-weight: bold; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
   </div>
   <div id="arrow-down" onclick="scrollToSection('main', true)" style="cursor: pointer; position: absolute; bottom: 30px; animation: bounce 2s infinite;">

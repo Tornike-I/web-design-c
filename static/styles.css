@@ -7,7 +7,7 @@
   }
 
   body {
-    background: url('abstract-geometric-background-with-blue-red-squares_669798-6693 (1).png') no-repeat center center fixed;
+    background: url('bg.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     position: relative;
@@ -303,7 +303,7 @@
   .intro {
   position: relative;
   height: 100vh;
-  background: url('your-image-file-name.png') no-repeat center center/cover;
+  background: url('banner.png') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -362,4 +362,71 @@
 
 .schedule-description {
   font-size: 1rem;
+}
+
+#chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#chat-body {
+  padding: 10px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+#chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#chat-input button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#chat-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
